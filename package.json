@@ -1,0 +1,53 @@
+{
+  "name": "dsh-document-reader",
+  "version": "1.0.3",
+  "type": "module",
+  "description": "Document & image reader panel for DeepSeek Harness — PDF/DOCX/EPUB/HTML/Markdown/text/images/Office, selection translate (Bing / Google / your DSH model), doc_reader agent tool, chat context injection, /doc command.",
+  "license": "MIT",
+  "author": "wangjianghu",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangjianghu/dsh-document-reader.git"
+  },
+  "bugs": "https://github.com/wangjianghu/dsh-document-reader/issues",
+  "homepage": "https://github.com/wangjianghu/dsh-document-reader#readme",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "reader",
+    "pdf",
+    "docx",
+    "epub",
+    "translate"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./client.vendor.js": "./client.vendor.js",
+    "./client.pdfjs.js": "./client.pdfjs.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "client.vendor.js",
+    "client.pdfjs.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": []
+    }
+  },
+  "dependencies": {
+    "pdfjs-dist": "^4.10.38"
+  }
+}

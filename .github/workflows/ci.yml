@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Syntax-check plugin sources
+        run: |
+          for f in index.js client.js client.vendor.js client.pdfjs.js; do
+            node --check "$f"
+          done
+      - name: Validate package manifest and declared files
+        run: |
+          node --input-type=module -e "
+          import { readFileSync } from 'node:fs';
+          const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
+          if (!pkg.dsh?.bundle?.patch) throw new Error('dsh.bundle.patch missing');
+          for (const f of pkg.files) {
+            if (f.includes('*')) continue;
+            readFileSync(f);
+          }
+          console.log('manifest OK (' + pkg.name + '@' + pkg.version + ')');
+          "
+      - name: Install runtime dependency (pdfjs-dist) for the Host suite
+        run: npm install --no-audit --no-fund --ignore-scripts
+      - name: Host regression suite
+        run: node tools/host-test.mjs
+      - name: Client test vendor environment (jsdom + react + jszip)
+        run: |
+          mkdir -p /tmp/vendor && cd /tmp/vendor
+          npm init -y >/dev/null
+          npm i jsdom@24 react@18 react-dom@18 jszip >/dev/null
+      - name: Client regression suite
+        run: cd /tmp/vendor && node "$GITHUB_WORKSPACE/tools/client-test.mjs"
+      - name: Smoke suite
+        run: cd /tmp/vendor && node "$GITHUB_WORKSPACE/tools/smoke-test.mjs"
+      - name: Validate the market index with the official validator
+        run: |
+          mkdir /tmp/idx && cd /tmp/idx
+          npm init -y >/dev/null
+          npm i @deepseek-ai/dsh-plugin-market-index >/dev/null
+          node --input-type=module -e "
+          import { parseMarketIndex } from '@deepseek-ai/dsh-plugin-market-index';
+          import { readFileSync } from 'node:fs';
+          const doc = JSON.parse(readFileSync('$GITHUB_WORKSPACE/index.json', 'utf8'));
+          const parsed = parseMarketIndex(doc, 'https://example.com/index.json');
+          if (!parsed.plugins.length) throw new Error('index lists no plugins');
+          console.log('index OK:', parsed.plugins.map((p) => p.name).join(', '));
+          "
+      - name: Build the npm tarball (dry run)
+        run: npm pack --dry-run

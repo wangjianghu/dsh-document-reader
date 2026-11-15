@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "文档阅读器",
+    "description": "独立阅读面板:PDF、DOCX、EPUB、HTML、Markdown、文本、图片与 Office 演示稿/表格;支持文内搜索、选段翻译(必应/Google/DSH 模型)、编辑、重命名、最近文件,并提供 doc_reader 对话工具与上下文注入。"
+  },
+  "panel": {
+    "title": "阅读器",
+    "placeholder": "输入本地文件绝对路径后回车…",
+    "open": "打开",
+    "browse": "浏览文件",
+    "recent": "最近文件",
+    "recentEmpty": "还没有打开过文件",
+    "clearRecent": "清空最近文件",
+    "error": "无法打开",
+    "unsupported": "不支持的文件类型",
+    "notFound": "文件不存在",
+    "loading": "加载中…",
+    "parentDir": "上一级",
+    "emptyDir": "此目录下没有可读文件",
+    "home": "主目录",
+    "outline": "大纲",
+    "search": "搜索",
+    "searchPrev": "上一个",
+    "searchNext": "下一个",
+    "searchCount": "{found} 处",
+    "prevPage": "上一页",
+    "nextPage": "下一页",
+    "pageOf": "第 {page} / {total} 页",
+    "zoomIn": "放大",
+    "zoomOut": "缩小",
+    "zoomReset": "重置缩放",
+    "rotateLeft": "左转",
+    "rotateRight": "右转",
+    "fitWindow": "适应窗口",
+    "pickFile": "选择文件",
+    "dropHint": "把支持的文件路径粘贴到上方打开",
+    "openInReader": "在阅读器打开",
+    "commandSearch": "搜索",
+    "commandRecent": "最近文档"
+  }
+}

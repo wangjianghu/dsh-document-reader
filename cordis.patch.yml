@@ -1,0 +1,10 @@
+- insert:
+    - id: dsh-doc-reader
+      name: 'dsh-document-reader'
+      config: {}
+    # Bing translation engine: the experimental translator Host service ships
+    # with the dsh installation and resolves from there (no npm dependency).
+    # Google gtx and DSH-model engines work without it.
+    - id: translator
+      name: '@deepseek-ai/dsh-experimental-translator'
+      config: {}

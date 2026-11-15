@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "title": {
+    "en": "wangjianghu's DSH plugin index",
+    "zh": "wangjianghu 的 DSH 插件索引"
+  },
+  "description": {
+    "en": "Self-hosted plugin-market index for dsh-document-reader.",
+    "zh": "dsh-document-reader 的自建插件市场索引。"
+  },
+  "metadata": {
+    "categories": {
+      "reader": {
+        "title": {
+          "en": "Reading & documents",
+          "zh": "阅读与文档"
+        }
+      }
+    },
+    "labels": {},
+    "sortKeys": {}
+  },
+  "plugins": [
+    {
+      "name": "dsh-document-reader",
+      "title": {
+        "en": "Document Reader",
+        "zh": "文档阅读器"
+      },
+      "description": {
+        "en": "A dedicated reader panel for local files: PDF, DOCX, EPUB, HTML, Markdown, text, images and Office decks/sheets. In-document search, selection translation (Bing / Google / your DSH model), editing, plus a doc_reader agent tool, chat context injection and a /doc command.",
+        "zh": "独立阅读面板:PDF、DOCX、EPUB、HTML、Markdown、文本、图片与 Office 演示稿/表格;文内搜索、选段翻译(必应/Google/DSH 模型)、编辑保存;并提供 doc_reader 对话工具、上下文注入与 /doc 命令。"
+      },
+      "icon": "https://raw.githubusercontent.com/wangjianghu/dsh-document-reader/main/icon.svg",
+      "author": "wangjianghu",
+      "homepage": "https://github.com/wangjianghu/dsh-document-reader#readme",
+      "repository": {
+        "url": "https://github.com/wangjianghu/dsh-document-reader"
+      },
+      "metadata": {
+        "category": "reader",
+        "keywords": [
+          "reader",
+          "pdf",
+          "docx",
+          "epub",
+          "markdown",
+          "translate",
+          "document"
+        ],
+        "labels": []
+      },
+      "versions": [
+        {
+          "version": "1.0.3",
+          "publishTimestamp": 1794886289,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.0"
+          }
+        }
+      ]
+    }
+  ]
+}

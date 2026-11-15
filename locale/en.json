@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "Document Reader",
+    "description": "A dedicated reader panel for local files: PDF, DOCX, EPUB, HTML, Markdown, text, images and Office decks/sheets, with in-document search, selection translation (Bing / Google / your DSH model), editing, rename, recent files, and a doc_reader agent tool plus chat context injection."
+  },
+  "panel": {
+    "title": "Reader",
+    "placeholder": "Type an absolute local file path and press Enter…",
+    "open": "Open",
+    "browse": "Browse files",
+    "recent": "Recent files",
+    "recentEmpty": "No files opened yet",
+    "clearRecent": "Clear recent files",
+    "error": "Cannot open",
+    "unsupported": "Unsupported file type",
+    "notFound": "File not found",
+    "loading": "Loading…",
+    "parentDir": "Parent folder",
+    "emptyDir": "No readable files in this folder",
+    "home": "Home",
+    "outline": "Outline",
+    "search": "Search",
+    "searchPrev": "Previous",
+    "searchNext": "Next",
+    "searchCount": "{found} matches",
+    "prevPage": "Previous page",
+    "nextPage": "Next page",
+    "pageOf": "Page {page} of {total}",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "zoomReset": "Reset zoom",
+    "rotateLeft": "Rotate left",
+    "rotateRight": "Rotate right",
+    "fitWindow": "Fit window",
+    "pickFile": "Choose file",
+    "dropHint": "Paste a supported file path above to open it",
+    "openInReader": "Open in reader",
+    "commandSearch": "Search",
+    "commandRecent": "Recent docs"
+  }
+}
